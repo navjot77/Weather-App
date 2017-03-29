@@ -18,7 +18,7 @@ class HomeContainer extends Component{
 
     handleSubmit(e){
      e.preventDefault();
-    this.context.router.push(`/getWeather/${this.state.city}`);
+     this.context.router.push(`/getWeather/${this.state.city}`);
     }
 
     handleStateChange(e){

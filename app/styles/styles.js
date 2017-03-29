@@ -26,7 +26,7 @@ export const headerContent= {
 export const weatherBody={
 
     background:'brown',
-    height:'90vh',
+    height:'100%',
     width:'100%'
 
 }
