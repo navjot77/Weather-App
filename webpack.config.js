@@ -1,5 +1,5 @@
 /**
- * Created by navjotsingh on 3/2/17.
+ * Created by navjotsingh on 3/27/17.
  */
 
 var HTMLwebpackPlugin=require("html-webpack-plugin");
@@ -11,7 +11,7 @@ var HTMLwebpackConfig=new HTMLwebpackPlugin({
 
 
 module.exports={
-    entry:['./app/index.js'],
+    entry:['babel-polyfill','./app/index.js'],
     output:{
         path:__dirname+'/dist',
         filename:"index_webpack_bundle.js"
