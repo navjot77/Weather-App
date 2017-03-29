@@ -21,7 +21,7 @@ const Routes=(
     <Route path="/" component={Home}>
         <IndexRoute component={Body} />
         <Route path='/getWeather/:city' component={WeatherContainer} />
-        <Route path="/details" component={EachDay}/>
+        <Route path="/details/:city" component={EachDay}/>
     </Route>
 </Router>
 

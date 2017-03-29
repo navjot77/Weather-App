@@ -47,16 +47,16 @@ class WeatherContainer extends Component{
     }
 
 
-    handleClick(){
+    handleClick(weather){
 
-        console.log('CLICKED THE DAY');
-       // this.context.router.push({
-         //   pathname: '/detail',
-           // state: {
-             //   weather:weather
-//
-  //          }
-    //    })
+        console.log(weather);
+       this.context.router.push({
+          pathname: '/details/'+this.props.routeParams.city,
+            state: {
+                weather:weather
+
+            }
+        })
 
 
 
@@ -68,7 +68,7 @@ class WeatherContainer extends Component{
 
         return (
             <Weather data={this.state.weather} loading={this.state.loading}
-            onClick={()=>this.handleClick()}
+            onClicke={(weather)=>this.handleClick(weather)}
 
             /> )
 

@@ -68,7 +68,7 @@ function Display({data, children, onClicke}){
             {children}
 
             { data.data.list.map( (data) => {
-               return <Item key={data.dt} day={data} onClicke={onClicke} />
+               return <Item key={data.dt} day={data} onClicke={onClicke.bind(null,data)} />
 
             }
             )}
