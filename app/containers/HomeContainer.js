@@ -16,21 +16,39 @@ class HomeContainer extends Component{
         }
     }
 
-    handleSubmit(){
+    handleSubmit(e){
+     e.preventDefault();
+    this.context.router.push(`/getWeather/${this.state.city}`);
+    }
 
-
+    handleStateChange(e){
+        e.preventDefault();
+        this.setState({
+            city:e.target.value
+        })
     }
 
     render(){
         return(
     <div>
-        <Header />
+        <Header
+
+        onSubmitCity={(e) => this.handleSubmit(e) }
+        onUpdateCity={(e) => this.handleStateChange(e) }
+
+        />
         {this.props.children}
     </div>
     )
     }
 
 
+
+}
+
+HomeContainer.contextTypes={
+
+    router:React.PropTypes.object.isRequired
 
 }
 export default HomeContainer;

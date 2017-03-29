@@ -22,3 +22,11 @@ export const headerContent= {
 
 
 };
+
+export const weatherBody={
+
+    background:'brown',
+    height:'90vh',
+    width:'100%'
+
+}

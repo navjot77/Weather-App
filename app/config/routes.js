@@ -11,14 +11,16 @@ import ReactRouter,{Router, Route, IndexRoute, hashHistory} from 'react-router';
 
 
 import Home from '../containers/HomeContainer';
-import Body from '../components/Body'
+import Body from '../components/Body';
+import WeatherContainer from '../containers/WeatherContainer'
 
 
 const Routes=(
 
 <Router history={hashHistory}>
     <Route path="/" component={Home}>
-        <IndexRoute component={Body}/>
+        <IndexRoute component={Body} />
+        <Route path='/getWeather/:city' component={WeatherContainer} />
     </Route>
 </Router>
 

@@ -12,6 +12,7 @@ function Button (props) {
         <button type='button'
                 style={{margin: 10}}
                 className='btn btn-success'
+                onClick={props.onSubmitCity}
                 >
             {props.children}
         </button>
@@ -22,7 +23,8 @@ function InputField (props) {
     return (
         <input
             className='form-control'
-
+            value={props.city}
+            onChange={props.onUpdateCity}
             placeholder='St. George, Utah'
             type='text'
              />
@@ -32,10 +34,8 @@ function InputField (props) {
 function getStyles () {
     return {
         display: 'flex',
-
         justifyContent: 'center',
         alignItems: 'center',
-
         alignSelf: 'right'
     }
 }
@@ -44,8 +44,8 @@ function Header (props) {
     return (
         <div style={ getStyles() }>
             <h1 style={{'margin-right':'20em'}}>WeatherApp</h1>
-            <InputField/>
-            <Button>
+            <InputField city={props.city} onUpdateCity={props.onUpdateCity}/>
+            <Button  onSubmitCity={props.onSubmitCity}>
                 Get Weather
             </Button>
         </div>
@@ -53,10 +53,9 @@ function Header (props) {
 }
 
 Header.propTypes = {
-    direction: PropTypes.string,
-    onSubmitCity: PropTypes.func,
-    onUpdateCity: PropTypes.func,
-    city: PropTypes.string
+    onSubmitCity: PropTypes.func.isRequired,
+    onUpdateCity: PropTypes.func.isRequired,
+    city:PropTypes.string
 };
 
 
