@@ -47,11 +47,30 @@ class WeatherContainer extends Component{
     }
 
 
+    handleClick(){
+
+        console.log('CLICKED THE DAY');
+       // this.context.router.push({
+         //   pathname: '/detail',
+           // state: {
+             //   weather:weather
+//
+  //          }
+    //    })
+
+
+
+    }
+
+
     render(){
         console.log("Inside render weather contaoner");
 
         return (
-            <Weather data={this.state.weather} loading={this.state.loading} /> )
+            <Weather data={this.state.weather} loading={this.state.loading}
+            onClick={()=>this.handleClick()}
+
+            /> )
 
 
     }
@@ -59,5 +78,10 @@ class WeatherContainer extends Component{
 
 
 }
+WeatherContainer.contextTypes={
+    router: React.PropTypes.object.isRequired
+
+
+};
 
 export default WeatherContainer;

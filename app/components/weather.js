@@ -28,11 +28,11 @@ const styleFor={
 }
 
 
-function Item({day}){
+function Item({day, onClicke}){
     var date = getDate(day.dt);
 
     return(
-    <div className="col-sm-4" style={styleFor.icon}>
+    <div className="col-sm-4" style={styleFor.icon} onClick={onClicke}>
         <h1>{date}</h1>
      <img src={`./app/images/weather-icons/${day.weather[0].icon}.svg`} alt="Image Not Available" height={'60vh'}/>
     <h2>Pressure : {day.temp.day}</h2>
@@ -59,7 +59,7 @@ function Item({day}){
 }
 
 
-function Display({data, children}){
+function Display({data, children, onClicke}){
     console.log("Inside Display")
     return(
 
@@ -68,7 +68,7 @@ function Display({data, children}){
             {children}
 
             { data.data.list.map( (data) => {
-               return <Item key={data.dt} day={data}/>
+               return <Item key={data.dt} day={data} onClicke={onClicke} />
 
             }
             )}
@@ -82,13 +82,13 @@ function Display({data, children}){
 
 
 
-function Weather({loading, data}){
+function Weather({loading, data, onClicke}){
 
     return (
         loading === true
         ? <Loading/>
         :
-            <Display data={data}>
+            <Display data={data} onClicke={onClicke}>
                 <div style={ styleFor.font }>
                 <h1>{data.data.city.name} </h1>
                 <img src={`./app/images/weather-icons/${data.data.list[0].weather[0].icon}.svg`} alt="Image Not Available" />
@@ -114,7 +114,8 @@ function Weather({loading, data}){
 
 Weather.proptypes={
     loading:PropTypes.bool.isRequired,
-    data:PropTypes.object.isRequired
+    data:PropTypes.object.isRequired,
+    onClicke:PropTypes.func.isRequired
 
 }
 
